@@ -7,9 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigMission.ChannelManagemen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{D68832B3-EE31-4BE1-ABC7-F76B5994376E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigMission.ChannelManagement.Shared.Tests", "BigMission.ChannelManagement.Shared.Tests\BigMission.ChannelManagement.Shared.Tests.csproj", "{775CAA32-4314-4C0B-A267-D1CBA5F67686}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigMission.ChannelManagement.Shared.Tests", "BigMission.ChannelManagement.Shared.Tests\BigMission.ChannelManagement.Shared.Tests.csproj", "{775CAA32-4314-4C0B-A267-D1CBA5F67686}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigMission.TestHelpers", "BigMission.TestHelpers\BigMission.TestHelpers.csproj", "{121B5F4A-D7F7-4FE9-A96E-795E4F6A9E64}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F82DB13B-0568-45A1-8F64-30421F910F94}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		nuget.config = nuget.config
+		pipeline-ci.yml = pipeline-ci.yml
+		pipeline-publish.yml = pipeline-publish.yml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +36,6 @@ Global
 		{775CAA32-4314-4C0B-A267-D1CBA5F67686}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{775CAA32-4314-4C0B-A267-D1CBA5F67686}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{775CAA32-4314-4C0B-A267-D1CBA5F67686}.Release|Any CPU.Build.0 = Release|Any CPU
-		{121B5F4A-D7F7-4FE9-A96E-795E4F6A9E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{121B5F4A-D7F7-4FE9-A96E-795E4F6A9E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{121B5F4A-D7F7-4FE9-A96E-795E4F6A9E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{121B5F4A-D7F7-4FE9-A96E-795E4F6A9E64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

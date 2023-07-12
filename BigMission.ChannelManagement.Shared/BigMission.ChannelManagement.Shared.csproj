@@ -1,24 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<Title>Cache Models</Title>
+		<Version>1.0.0.0</Version>
+		<Authors>Brian Griggs</Authors>
+		<Company>Big Mission Motorsports, LLC</Company>
+		<Product>Red Mist</Product>
+		<Description>Shared channel framework</Description>
+		<Copyright>2023</Copyright>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://dev.azure.com/bigmission/RedMist/_git/ChannelManagement</RepositoryUrl>
+		<IncludeSymbols>True</IncludeSymbols>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
-    <PackageReference Include="UnitsNet" Version="5.9.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+		<PackageReference Include="UnitsNet" Version="5.9.0" />
+		<PackageReference Include="BigMission.TestHelpers" Version="2.0.0-CI-20230702-221602" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Counter\" />
-    <Folder Include="Logging\" />
-    <Folder Include="Alarms\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BigMission.TestHelpers\BigMission.TestHelpers.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Counter\" />
+		<Folder Include="Logging\" />
+		<Folder Include="Alarms\" />
+	</ItemGroup>
 
 </Project>
