@@ -24,3 +24,8 @@ steps:
   
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: 'BigMission.ChannelManagement.Shared.Tests/BigMission.ChannelManagement.Shared.Tests.csproj'
