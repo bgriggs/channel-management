@@ -1,8 +1,7 @@
-﻿namespace BigMission.ChannelManagement.Shared.Logic
+﻿namespace BigMission.ChannelManagement.Shared.Logic;
+
+public interface IStatementRepository
 {
-    public interface IStatementRepository
-    {
-        public Task<Statements> GetStatementsAsync(int statementId);
-        public Task SetStatementsAsync(Statements s);
-    }
+    public Task<Statements> GetStatementsAsync(int statementId);
+    public Task SetStatementsAsync(Statements s);
 }

@@ -1,9 +1,8 @@
-﻿namespace BigMission.ChannelManagement.Shared.Tables
+﻿namespace BigMission.ChannelManagement.Shared.Tables;
+
+public enum InterpolationType
 {
-    public enum InterpolationType
-    {
-        Linear,
-        CubicSpline,
-        Polynomial,
-    }
+    Linear,
+    CubicSpline,
+    Polynomial,
 }

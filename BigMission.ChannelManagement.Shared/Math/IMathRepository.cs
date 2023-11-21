@@ -1,7 +1,6 @@
-﻿namespace BigMission.ChannelManagement.Shared.Math
+﻿namespace BigMission.ChannelManagement.Shared.Math;
+
+public interface IMathRepository
 {
-    public interface IMathRepository
-    {
-        public Task<IEnumerable<MathParameters>> GetParameters();
-    }
+    public Task<IEnumerable<MathParameters>> GetParameters();
 }

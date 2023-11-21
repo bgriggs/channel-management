@@ -1,8 +1,7 @@
-﻿namespace BigMission.ChannelManagement.Shared
+﻿namespace BigMission.ChannelManagement.Shared;
+
+public interface IChannelRepository
 {
-    public interface IChannelRepository
-    {
-        public Task<ChannelValue> GetChannelValueAsync(int channelId);
-        public Task SetChannelValueAsync(ChannelValue ch);
-    }
+    public Task<ChannelValue> GetChannelValueAsync(int channelId);
+    public Task SetChannelValueAsync(ChannelValue ch);
 }

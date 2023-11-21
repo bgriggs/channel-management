@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace BigMission.ChannelManagement.Shared.Logic;
 
-namespace BigMission.ChannelManagement.Shared.Logic
+public enum LogicType
 {
-    public enum LogicType
-    {
-        GreaterThan,
-        LessThan,
-        GreaterThanOrEqualTo,
-        LessThanOrEqualTo,
-        EqualTo,
-        True,
-        False,
-        Updated,
-        ChangedBy
-    }
+    GreaterThan,
+    LessThan,
+    GreaterThanOrEqualTo,
+    LessThanOrEqualTo,
+    EqualTo,
+    True,
+    False,
+    Updated,
+    ChangedBy
 }
