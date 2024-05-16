@@ -15,7 +15,7 @@ public class ComparisonState
     /// <summary>
     /// Channel value for the Updated logic.
     /// </summary>
-    public string LastValue { get; set; }
+    public string LastValue { get; set; } = string.Empty;
 
     /// <summary>
     /// The timestamp at which the statement went true. 

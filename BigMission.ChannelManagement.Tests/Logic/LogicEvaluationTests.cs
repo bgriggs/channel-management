@@ -27,10 +27,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Logic
 
             var statement = new Statements();
             var comp = new Comparison { ComparisonId = 1, ChannelId = 1, Logic = LogicType.GreaterThan, ChannelComparisonId = 2, UseStaticComparison = false };
-            statement.StatementRows = new List<List<Comparison>>
-            { new List<Comparison>
-                { comp }
-            };
+            statement.StatementRows = [[comp]];
 
             // Greater than
             var t = logic.Evaluate(statement);
@@ -160,10 +157,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Logic
 
             var statement = new Statements();
             var comp = new Comparison { ComparisonId = 1, ChannelId = 1, Logic = LogicType.GreaterThan, UseStaticComparison = true, StaticValueComparison = "2" };
-            statement.StatementRows = new List<List<Comparison>>
-            { new List<Comparison>
-                { comp }
-            };
+            statement.StatementRows = [[comp]];
 
             // Greater than
             var t = logic.Evaluate(statement);
@@ -194,10 +188,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Logic
 
             var statement = new Statements();
             var comp = new Comparison { ComparisonId = 1, ChannelId = 1, Logic = LogicType.Updated, UseStaticComparison = false };
-            statement.StatementRows = new List<List<Comparison>>
-            { new List<Comparison>
-                { comp }
-            };
+            statement.StatementRows = [[comp]];
 
             var t = logic.Evaluate(statement);
             t.Wait();
@@ -232,10 +223,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Logic
 
             var statement = new Statements();
             var comp = new Comparison { ComparisonId = 1, ChannelId = 1, Logic = LogicType.ChangedBy, UseStaticComparison = true, StaticValueComparison = "100" };
-            statement.StatementRows = new List<List<Comparison>>
-            { new List<Comparison>
-                { comp }
-            };
+            statement.StatementRows = [[comp]];
 
             var t = logic.Evaluate(statement);
             t.Wait();
@@ -287,11 +275,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Logic
             var statement = new Statements();
             var comp1 = new Comparison { ComparisonId = 1, ChannelId = 1, Logic = LogicType.GreaterThan, UseStaticComparison = true, StaticValueComparison = "2" };
             var comp2 = new Comparison { ComparisonId = 2, ChannelId = 2, Logic = LogicType.EqualTo, UseStaticComparison = true, StaticValueComparison = "3" };
-            statement.StatementRows = new List<List<Comparison>>
-            { new List<Comparison>
-                // Same row is AND
-                { comp1, comp2 }
-            };
+            statement.StatementRows = [ [comp1, comp2] ];
 
             // 1 > 2 AND 2 == 3
             // False
@@ -343,14 +327,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Logic
             var comp1 = new Comparison { ComparisonId = 1, ChannelId = 1, Logic = LogicType.GreaterThan, UseStaticComparison = true, StaticValueComparison = "2" };
             var comp2 = new Comparison { ComparisonId = 2, ChannelId = 2, Logic = LogicType.EqualTo, UseStaticComparison = true, StaticValueComparison = "3" };
             var comp3 = new Comparison { ComparisonId = 3, ChannelId = 3, Logic = LogicType.LessThanOrEqualTo, UseStaticComparison = true, StaticValueComparison = "1" };
-            statement.StatementRows = new List<List<Comparison>>
-            { new List<Comparison>
-                // Same row is AND
-                { comp1, comp2 },
-                new List<Comparison>
-                // Rows are OR
-                { comp3 }
-            };
+            statement.StatementRows = [[comp1, comp2], [comp3]];
 
             // 1 > 2 AND 2 == 3
             // 3 <= 1
@@ -391,10 +368,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Logic
 
             var statement = new Statements();
             var comp = new Comparison { ComparisonId = 1, ChannelId = 1, Logic = LogicType.EqualTo, UseStaticComparison = true, StaticValueComparison = "1", ForMs = 3000 };
-            statement.StatementRows = new List<List<Comparison>>
-            { new List<Comparison>
-                { comp }
-            };
+            statement.StatementRows = [[comp]];
 
             // 1 == 1 true 
             // Start timer

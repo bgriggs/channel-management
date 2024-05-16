@@ -65,7 +65,7 @@ public class TableEvaluation
             // Double -> double: interpolate with the table
             else
             {
-                IInterpolation interpolate = null;
+                IInterpolation? interpolate = null;
                 switch (mapping.InterpolationType)
                 {
                     case InterpolationType.Linear:
@@ -79,7 +79,7 @@ public class TableEvaluation
                         break;
                 }
                 
-                var interpolatedOutput = interpolate.Interpolate(inputCh.GetValueDouble());
+                var interpolatedOutput = interpolate?.Interpolate(inputCh.GetValueDouble()) ?? 0.0;
                 outputValue.SetBaseValue(interpolatedOutput, outputMap);
             }
 

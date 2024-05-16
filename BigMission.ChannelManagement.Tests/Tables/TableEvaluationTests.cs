@@ -39,7 +39,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Tables
             t.Wait();
             output = channelRepo.GetChannelValueAsync(2);
             output.Wait();
-            Assert.AreEqual(null, output.Result.Value);
+            Assert.AreEqual(string.Empty, output.Result.Value);
 
             // Ignore case on all lower
             tableMapping.IgnoreCase = false;
@@ -57,7 +57,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Tables
             t.Wait();
             output = channelRepo.GetChannelValueAsync(2);
             output.Wait();
-            Assert.AreEqual(null, output.Result.Value);
+            Assert.AreEqual(string.Empty, output.Result.Value);
 
             // Ignore case on different case
             tableMapping.IgnoreCase = false;
@@ -111,7 +111,7 @@ namespace BigMission.ChannelManagement.Shared.Tests.Tables
             t.Wait();
             output = channelRepo.GetChannelValueAsync(2);
             output.Wait();
-            Assert.AreEqual(null, output.Result.Value);
+            Assert.AreEqual(string.Empty, output.Result.Value);
 
             cv1.Value = "2";
             t = tableEval.Evaluate();

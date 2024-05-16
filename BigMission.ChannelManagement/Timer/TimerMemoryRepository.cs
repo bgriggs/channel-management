@@ -2,8 +2,8 @@
 
 public class TimerMemoryRepository : ITimerRepository
 {
-    private readonly List<TimerParameters> timerParameters = new();
-    private readonly Dictionary<int, TimerState> timerStates = new();
+    private readonly List<TimerParameters> timerParameters = [];
+    private readonly Dictionary<int, TimerState> timerStates = [];
 
     public Task<IEnumerable<TimerParameters>> GetTimersAsync()
     {
@@ -19,7 +19,7 @@ public class TimerMemoryRepository : ITimerRepository
 
     public Task<TimerState> GetTimerStateAsync(int timerId)
     {
-        _ = timerStates.TryGetValue(timerId, out TimerState state);
+        _ = timerStates.TryGetValue(timerId, out TimerState? state);
         state ??= new TimerState { Id = timerId };
         return Task.FromResult(state);
     }

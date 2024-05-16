@@ -2,11 +2,11 @@
 
 public class StatementMemoryRepository : IStatementRepository
 {
-    private readonly Dictionary<int, Statements> statements = new();
+    private readonly Dictionary<int, Statements> statements = [];
 
     public Task<Statements> GetStatementsAsync(int statementsId)
     {
-        _ = statements.TryGetValue(statementsId, out Statements s);
+        _ = statements.TryGetValue(statementsId, out Statements? s);
         s ??= new Statements { Id = statementsId };
         return Task.FromResult(s);
     }

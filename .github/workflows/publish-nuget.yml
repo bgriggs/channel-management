@@ -23,8 +23,8 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build BigMission.ChannelManagement.Shared/BigMission.ChannelManagement.Shared.csproj --no-restore --configuration Release
+        run: dotnet build BigMission.ChannelManagement/BigMission.ChannelManagement.csproj --no-restore --configuration Release
       - name: Create the package
-        run: dotnet pack BigMission.ChannelManagement.Shared/BigMission.ChannelManagement.Shared.csproj --configuration Release
+        run: dotnet pack BigMission.ChannelManagement/BigMission.ChannelManagement.csproj --configuration Release
       - name: Publish the package to Nuget
-        run: dotnet nuget push BigMission.ChannelManagement.Shared\bin\Release\*.nupkg -s https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate
+        run: dotnet nuget push BigMission.ChannelManagement\bin\Release\*.nupkg -s https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate

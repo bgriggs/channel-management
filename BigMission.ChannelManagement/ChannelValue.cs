@@ -9,14 +9,18 @@ public class ChannelValue
     /// ID of the channel, same as mapping and channel DTO.
     /// </summary>
     public int Id { get; set; }
-    public string Value { get; set; }
+    public string Value { get; set; } = string.Empty;
 
-    public IQuantity GetDisplayQuantity(ChannelMapping map)
+    public IQuantity? GetDisplayQuantity(ChannelMapping map)
     {
         var v = double.Parse(Value);
         // convert from base units to display units?
-        Quantity.TryFrom(v, map.DisplayUnitType, out IQuantity quantity);
-        return quantity;
+        if (map.DisplayUnitType is not null)
+        {
+            Quantity.TryFrom(v, map.DisplayUnitType, out IQuantity? quantity);
+            return quantity;
+        }
+        return null;
     }
 
     public void SetBaseValue(double value, ChannelMapping map)

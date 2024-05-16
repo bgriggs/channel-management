@@ -52,11 +52,24 @@ public class LogicEvaluation
         var mapping = await channelMappingRepository.GetChannelMappingAsync(channel.Id);
         var chQuantity = channel.GetDisplayQuantity(mapping);
 
+        if (mapping is null)
+        {
+            throw new InvalidOperationException($"Channel mapping not found for channel {channel.Id}");
+        }
+        if (chQuantity == null)
+        {
+            throw new InvalidOperationException($"Channel quantity not found for channel {channel.Id}");
+        }
+
         // Resolve value to compare with
-        IQuantity checkQuantity = null;
+        IQuantity? checkQuantity = null;
         if (comp.UseStaticComparison)
         {
             var v = double.Parse(comp.StaticValueComparison);
+            if (mapping.DisplayUnitType is null)
+            {
+                throw new InvalidOperationException($"Display unit type not found for channel {channel.Id}");
+            }
             checkQuantity = Quantity.From(v, mapping.DisplayUnitType);
         }
         else if (comp.ChannelComparisonId > 0)
@@ -71,18 +84,28 @@ public class LogicEvaluation
         switch (comp.Logic)
         {
             case LogicType.GreaterThan:
+                if (checkQuantity == null)
+                    throw new InvalidOperationException("Comparison quantity not found");
                 result = chQuantity.Value > checkQuantity.Value;
                 break;
             case LogicType.GreaterThanOrEqualTo:
+                if (checkQuantity == null)
+                    throw new InvalidOperationException("Comparison quantity not found");
                 result = chQuantity.Value >= checkQuantity.Value;
                 break;
             case LogicType.LessThan:
+                if (checkQuantity == null)
+                    throw new InvalidOperationException("Comparison quantity not found");
                 result = chQuantity.Value < checkQuantity.Value;
                 break;
             case LogicType.LessThanOrEqualTo:
+                if (checkQuantity == null)
+                    throw new InvalidOperationException("Comparison quantity not found");
                 result = chQuantity.Value <= checkQuantity.Value;
                 break;
             case LogicType.EqualTo:
+                if (checkQuantity == null)
+                    throw new InvalidOperationException("Comparison quantity not found");
                 result = chQuantity.Value == checkQuantity.Value;
                 break;
             case LogicType.True:
@@ -94,9 +117,19 @@ public class LogicEvaluation
             case LogicType.ChangedBy:
                 if (!string.IsNullOrEmpty(state.LastValue))
                 {
+                    if (mapping.DisplayUnitType is null)
+                    {
+                        throw new InvalidOperationException($"Display unit type not found for channel {channel.Id}");
+                    }
                     var v = double.Parse(state.LastValue);
-                    Quantity.TryFrom(v, mapping.DisplayUnitType, out IQuantity last);
+                    Quantity.TryFrom(v, mapping.DisplayUnitType, out IQuantity? last);
+                    if (last is null)
+                    {
+                        throw new InvalidOperationException($"Last value not found for channel {channel.Id}");
+                    }
                     var diff = System.Math.Abs(((double)chQuantity.Value) - (double)last.Value);
+                    if (checkQuantity == null)
+                        throw new InvalidOperationException("Comparison quantity not found");
                     result = diff >= checkQuantity.Value;
                 }
                 else
@@ -108,8 +141,16 @@ public class LogicEvaluation
             case LogicType.Updated:
                 if (!string.IsNullOrEmpty(state.LastValue))
                 {
+                    if (mapping.DisplayUnitType is null)
+                    {
+                        throw new InvalidOperationException($"Display unit type not found for channel {channel.Id}");
+                    }
                     var v = double.Parse(state.LastValue);
-                    Quantity.TryFrom(v, mapping.DisplayUnitType, out IQuantity last);
+                    Quantity.TryFrom(v, mapping.DisplayUnitType, out IQuantity? last);
+                    if (last is null)
+                    {
+                        throw new InvalidOperationException($"Last value not found for channel {channel.Id}");
+                    }
                     result = chQuantity.Value != last.Value;
                 }
                 else
@@ -150,7 +191,7 @@ public class LogicEvaluation
         state.LastValue = chQuantity.Value.ToString();
         state.IsTrue = result;
         await comparisonRepository.SetStateAsync(state);
-        
+
         return result;
     }
 }

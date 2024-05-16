@@ -10,18 +10,18 @@ public class ChannelMappingDto
     /// Is the channel user editable.
     /// </summary>
     public bool IsReserved { get; set; }
-    public string Category { get; set; }
-    public string Name { get; set; }
-    public string Abbreviation { get; set; }
+    public string Category { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public string Abbreviation { get; set; } = string.Empty;
 
     /// <summary>
     /// String value for enumerations or non-numeric Quantities.
     /// </summary>
     public bool IsStringValue { get; set; }
-    public string DataType { get; set; }
-    public string BaseUnitType { get; set; }
+    public string DataType { get; set; } = string.Empty;
+    public string BaseUnitType { get; set; } = string.Empty;
     public int BaseDecimalPlaces { get; set; }
-    public string DisplayUnitType { get; set; }
+    public string DisplayUnitType { get; set; } = string.Empty;
     public int DisplayDecimalPlaces { get; set; }
 
     /// <summary>
@@ -30,6 +30,6 @@ public class ChannelMappingDto
     public ChannelMappingDto Copy()
     {
         var json = JsonConvert.SerializeObject(this);
-        return JsonConvert.DeserializeObject<ChannelMappingDto>(json);
+        return JsonConvert.DeserializeObject<ChannelMappingDto>(json)!;
     }
 }

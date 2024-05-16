@@ -3,18 +3,18 @@
 public class TableMapping
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     public bool IsEnum { get; set; }
     public bool IgnoreCase { get; set; }
     public int InputChannel { get; set; }
     public int OutputChannel { get; set; }
     public InterpolationType InterpolationType { get; set; }
 
-    public List<(string input, string output)> Mapping { get; } = new List<(string input, string output)>();
+    public List<(string input, string output)> Mapping { get; } = [];
 
 
-    private IEnumerable<double> inputPoints= null;
-    private IEnumerable<double> outputValues = null;
+    private IEnumerable<double>? inputPoints= null;
+    private IEnumerable<double>? outputValues = null;
 
     public IEnumerable<double> InputPoints
     {

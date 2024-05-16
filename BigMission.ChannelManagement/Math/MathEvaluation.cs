@@ -25,12 +25,12 @@ public class MathEvaluation
         foreach (var p in parameters.OrderBy(p => p.Order))
         {
             double output = 0;
-            var channel1 = await GetChannelQuantity(p.Channel1Id);
+            var channel1 = await GetChannelQuantity(p.Channel1Id) ?? throw new InvalidOperationException($"Channel {p.Channel1Id} not found");
             switch (p.Type)
             {
                 // Output = value1 / (value1 + value2)
                 case MathType.Bias:
-                    var channel2 = await GetChannelQuantity(p.Channel2Id);
+                    var channel2 = await GetChannelQuantity(p.Channel2Id) ?? throw new InvalidOperationException($"Channel {p.Channel2Id} not found");
                     output = (double)channel1.Value / ((double)channel1.Value + (double)channel2.Value);
                     break;
 
@@ -50,7 +50,7 @@ public class MathEvaluation
                     double value2 = (double)p.A;
                     if (p.Channel2Id > 0)
                     {
-                        var ch2 = await GetChannelQuantity(p.Channel2Id);
+                        var ch2 = await GetChannelQuantity(p.Channel2Id) ?? throw new InvalidOperationException($"Channel {p.Channel2Id} not found");
                         value2 = (double)ch2.Value;
                     }
                     switch (p.SimpleOperationType)
@@ -88,7 +88,7 @@ public class MathEvaluation
         }
     }
 
-    private async Task<IQuantity> GetChannelQuantity(int chId)
+    private async Task<IQuantity?> GetChannelQuantity(int chId)
     {
         var ch = await channelRepository.GetChannelValueAsync(chId);
         var map = await channelMappingRepository.GetChannelMappingAsync(chId);

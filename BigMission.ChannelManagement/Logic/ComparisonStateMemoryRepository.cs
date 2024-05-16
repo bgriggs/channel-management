@@ -2,11 +2,11 @@
 
 public class ComparisonStateMemoryRepository : IComparisonStateRepository
 {
-    private readonly Dictionary<int, ComparisonState> state = new();
+    private readonly Dictionary<int, ComparisonState> state = [];
 
-    public Task<ComparisonState> GetStateAsync(int comparisonId)
+    public Task<ComparisonState?> GetStateAsync(int comparisonId)
     {
-        _ = state.TryGetValue(comparisonId, out ComparisonState comparisonState);
+        _ = state.TryGetValue(comparisonId, out ComparisonState? comparisonState);
         return Task.FromResult(comparisonState);
     }
 
