@@ -1,4 +1,4 @@
-﻿namespace BigMission.ChannelManagement.Shared.Tables;
+﻿namespace BigMission.ChannelManagement.Tables;
 
 public interface ITableRepository
 {

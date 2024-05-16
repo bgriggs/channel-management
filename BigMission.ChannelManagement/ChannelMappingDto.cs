@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BigMission.ChannelManagement.Shared;
+namespace BigMission.ChannelManagement;
 
 public class ChannelMappingDto
 {

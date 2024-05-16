@@ -1,4 +1,4 @@
-﻿namespace BigMission.ChannelManagement.Shared.Timer;
+﻿namespace BigMission.ChannelManagement.Timer;
 
 public class TimerParameters
 {

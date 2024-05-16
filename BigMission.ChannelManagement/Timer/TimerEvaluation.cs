@@ -1,7 +1,7 @@
-﻿using BigMission.ChannelManagement.Shared.Logic;
+﻿using BigMission.ChannelManagement.Logic;
 using BigMission.TestHelpers;
 
-namespace BigMission.ChannelManagement.Shared.Timer;
+namespace BigMission.ChannelManagement.Timer;
 
 /// <summary>
 /// Runs and manages timer instances.

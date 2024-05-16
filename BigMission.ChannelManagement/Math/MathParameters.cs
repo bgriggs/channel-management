@@ -1,4 +1,4 @@
-﻿namespace BigMission.ChannelManagement.Shared.Math;
+﻿namespace BigMission.ChannelManagement.Math;
 
 public class MathParameters
 {

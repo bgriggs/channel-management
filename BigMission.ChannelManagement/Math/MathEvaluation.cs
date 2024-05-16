@@ -1,6 +1,6 @@
 ﻿using UnitsNet;
 
-namespace BigMission.ChannelManagement.Shared.Math;
+namespace BigMission.ChannelManagement.Math;
 
 /// <summary>
 /// Runs Math operations.

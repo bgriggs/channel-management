@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using UnitsNet;
 
-namespace BigMission.ChannelManagement.Shared;
+namespace BigMission.ChannelManagement;
 
 public class ChannelValue
 {

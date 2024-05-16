@@ -1,7 +1,7 @@
 ﻿using BigMission.TestHelpers;
 using UnitsNet;
 
-namespace BigMission.ChannelManagement.Shared.Logic;
+namespace BigMission.ChannelManagement.Logic;
 
 /// <summary>
 /// Determines whether a statement is true or false. 

@@ -1,7 +1,7 @@
 ﻿using MathNet.Numerics;
 using MathNet.Numerics.Interpolation;
 
-namespace BigMission.ChannelManagement.Shared.Tables;
+namespace BigMission.ChannelManagement.Tables;
 
 /// <summary>
 /// Convert from input value to output channel using a table. 

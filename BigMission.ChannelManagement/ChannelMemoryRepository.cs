@@ -1,4 +1,4 @@
-﻿namespace BigMission.ChannelManagement.Shared;
+﻿namespace BigMission.ChannelManagement;
 
 public class ChannelMemoryRepository : IChannelRepository
 {

@@ -1,4 +1,4 @@
-﻿namespace BigMission.ChannelManagement.Shared.Logic;
+﻿namespace BigMission.ChannelManagement.Logic;
 
 public class ComparisonStateMemoryRepository : IComparisonStateRepository
 {
