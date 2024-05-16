@@ -4,8 +4,8 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
-		<Title>Cache Models</Title>
-		<Version>1.0.1.0</Version>
+		<Title>Channel Management</Title>
+		<Version>1.0.2.0</Version>
 		<Authors>Brian Griggs</Authors>
 		<Company>Big Mission Motorsports, LLC</Company>
 		<Product>Red Mist</Product>
@@ -14,13 +14,20 @@
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://dev.azure.com/bigmission/RedMist/_git/ChannelManagement</RepositoryUrl>
 		<IncludeSymbols>True</IncludeSymbols>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="MathNet.Numerics" Version="5.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="UnitsNet" Version="5.49.0" />
-		<PackageReference Include="BigMission.TestHelpers" Version="2.0.0-CI-20230702-221602" />
+		<PackageReference Include="BigMission.TestHelpers" Version="3.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../LICENSE" Pack="true" PackagePath="" />
+		<None Include="../README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 	<ItemGroup>
